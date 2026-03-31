@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitetura Viva | Peças que definem espaços</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Arquitetura Viva</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">COLEÇÕES</a></li>
+                <li><a href="#">AMBIENTES</a></li>
+                <li><a href="#">SOB MEDIDA</a></li>
+                <li><a href="#">ATELIER</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icons">
+            <button class="icon-btn" aria-label="Pesquisar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <button class="icon-btn" aria-label="Carrinho">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <span class="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="hero">
+        <div class="hero-bg-wrapper">
+            <div class="hero-bg"></div> </div>
+        <div class="hero-content">
+            <p class="subtitle">COLEÇÃO 2026</p>
+            <h1 class="reveal-text">Arquitetura <i>Viva</i></h1>
+            <p class="description">Móveis que transcendem o tempo. Design que respeita o espaço. Materiais que contam histórias.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">EXPLORAR COLEÇÃO</button>
+                <button class="btn-secondary">NOSSO ATELIER</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="line-down"></div>
+        </div>
+    </main>
+
+    <section class="products-section js-reveal">
+        <div class="container">
+            <div class="products-header">
+                <h2>Peças que<br>definem espaços</h2>
+                <a href="#" class="view-all">VER TODA A COLEÇÃO 
+                    <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card js-product-reveal">
+                    <span class="product-badge">NOVO</span>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=500&q=80" alt="Poltrona Éden">
+                    </div>
+                    <div class="product-details">
+                        <p class="product-category">POLTRONAS</p>
+                        <h3 class="product-title">Poltrona Éden</h3>
+                        <p class="product-price">R$ 7.490</p>
+                    </div>
+                </div>
+
+                <div class="product-card js-product-reveal">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80" alt="Mesa Orgânica">
+                    </div>
+                    <div class="product-details">
+                        <p class="product-category">MESAS</p>
+                        <h3 class="product-title">Mesa Orgânica</h3>
+                        <p class="product-price">R$ 12.900</p>
+                    </div>
+                </div>
+
+                <div class="product-card js-product-reveal highlight">
+                    <span class="product-badge accent">DESTAQUE</span>
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1571470/pexels-photo-1571470.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Luminária Pátina" loading="lazy" class="image-fade-in">
+                    </div>
+                    <div class="product-details">
+                        <p class="product-category">ILUMINAÇÃO</p>
+                        <h3 class="product-title">Luminária Pátina</h3>
+                        <p class="product-price">R$ 3.290</p>
+                    </div>
+                </div>
+
+                <div class="product-card js-product-reveal">
+                    <span class="product-badge">BEST SELLER</span>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=500&q=80" alt="Sofa Modular">
+                    </div>
+                    <div class="product-details">
+                        <p class="product-category">SOFÁS</p>
+                        <h3 class="product-title">Sofá Modular Infinity</h3>
+                        <p class="product-price">R$ 18.900</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="environments-section js-reveal">
+        <div class="container">
+            <div class="section-title-center">
+                <h2>Explore por <i>ambiente</i></h2>
+            </div>
+
+            <div class="environments-grid">
+                <div class="env-card">
+                    <div class="env-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Sala de Estar">
+                        <div class="env-overlay"></div>
+                    </div>
+                    <div class="env-content">
+                        <h3>Sala de Estar</h3>
+                        <p>Conforto que inspira convivência</p>
+                    </div>
+                </div>
+
+                <div class="env-card">
+                    <div class="env-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Quartos">
+                        <div class="env-overlay"></div>
+                    </div>
+                    <div class="env-content">
+                        <h3>Quartos</h3>
+                        <p>Refúgio de serenidade e design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="philosophy-section js-reveal">
+        <div class="scrolling-text-container">
+            <div class="scrolling-text">
+                <span>Design • Artesanato • Natureza • Design • Artesanato • Natureza • Design • Artesanato • Natureza • Design • Artesanato • Natureza</span>
+            </div>
+        </div>
+
+        <div class="container philosophy-grid">
+            <div class="philosophy-content">
+                <p class="subtitle">NOSSA FILOSOFIA</p>
+                <h2>Cada peça nasce da conversa entre <i>forma e função</i></h2>
+                <p class="description-text">
+                    Na Arquitetura Viva, acreditamos que o mobiliário deve ser uma extensão natural do espaço. 
+                    Nossos artesãos combinam técnicas tradicionais com materiais sustentáveis, criando peças 
+                    que envelhecem com graça.
+                </p>
+                <button class="btn-outline">CONHEÇA O ATELIER</button>
+            </div>
+
+            <div class="philosophy-stats">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">ANOS DE DESIGN</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2.400</span>
+                    <span class="stat-label">PROJETOS ENTREGUES</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">MADEIRA CERTIFICADA</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">47</span>
+                    <span class="stat-label">ARTESÃOS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h2 class="logo">Arquitetura Viva</h2>
+                    <p>Mobiliário de autor que transforma espaços em experiências.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4>COLEÇÕES</h4>
+                        <ul>
+                            <li><a href="#">Sofás</a></li>
+                            <li><a href="#">Poltronas</a></li>
+                            <li><a href="#">Mesas</a></li>
+                            <li><a href="#">Iluminação</a></li>
+                            <li><a href="#">Estantes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>EMPRESA</h4>
+                        <ul>
+                            <li><a href="#">Nosso Atelier</a></li>
+                            <li><a href="#">Sustentabilidade</a></li>
+                            <li><a href="#">Artesãos</a></li>
+                            <li><a href="#">Imprensa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>SUPORTE</h4>
+                        <ul>
+                            <li><a href="#">Contato</a></li>
+                            <li><a href="#">Entregas</a></li>
+                            <li><a href="#">Trocas</a></li>
+                            <li><a href="#">Garantia</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-newsletter">
+                <div class="newsletter-text">
+                    <h3>Receba novidades em primeira mão</h3>
+                    <p>Coleções exclusivas, eventos e inspirações direto no seu e-mail.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="seu@email.com" required>
+                    <button type="submit">INSCREVER</button>
+                </form>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Arquitetura Viva. Feito por Gustavo Borghezan Alberton</p>
+                <div class="footer-legal">
+                    <a href="#">Privacidade</a>
+                    <a href="#">Termos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+:root {
+    --bg-color: #f5f2ed; /* Cor de fundo principal mais quente */
+    --bg-hero: #dcd0b9;  /* Cor secundária do hero */
+    --text-dark: #1a1a1a;
+    --text-light: #ffffff;
+    --accent: #c5a880; /* Dourado suave */
+    --accent-dark: #a68b60;
+    --badge-bg: #eae6e0; /* Fundo cinza suave para tags */
+    --transition-slow: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
+}
+
+/* Reset e Estrutura Básica */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-dark); overflow-x: hidden; }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+
+/* Navbar (Ajustada para o novo fundo) */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 5%; position: fixed; width: 100%; z-index: 1000;
+    transition: var(--transition-slow);
+}
+
+.logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: bold; color: var(--text-dark); }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-dark); font-size: 0.8rem; letter-spacing: 1.5px; opacity: 0.7; transition: var(--transition-fast); }
+.nav-links a:hover { opacity: 1; color: var(--accent-dark); }
+.nav-icons { display: flex; gap: 15px; color: var(--text-dark); }
+
+.icon-btn { background: none; border: none; cursor: pointer; color: inherit; padding: 5px; display: inline-flex; align-items: center; position: relative; transition: var(--transition-fast); }
+.icon-btn:hover { opacity: 0.6; }
+.cart-count { font-size: 10px; position: absolute; top: -2px; right: -2px; font-weight: bold; }
+
+/* ========================================================== */
+/* SECTION 1: HERO (Com Paralaxe)                           */
+/* ========================================================== */
+/* ========================================================== */
+/* SECTION 1: HERO (Com Paralaxe - CORREÇÃO DE FUNDO)       */
+/* ========================================================== */
+.hero { 
+    height: 100vh; 
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    color: var(--text-light); 
+    position: relative; 
+    overflow: hidden; 
+    /* IMPORTANTE: Removi a cor de fundo sólida daqui para ela não tapar a imagem */
+    /* background-color: var(--bg-hero); */ /* Fallback removido */
+}
+
+/* Wrapper para o fundo paralaxe */
+.hero-bg-wrapper { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: -1; /* Garante que fique atrás do conteúdo */
+    /* NOVA REGRA: Fallback de cor movido para cá, mas com transparência */
+    background-color: rgba(220, 208, 185, 0.6); /* Cor base mais suave */
+}
+
+.hero-bg {
+    width: 100%; 
+    height: 120%; /* Imagem maior que o container para mover */
+    /* NOVA REGRA: Melhorando o gradiente para não escurecer muito a imagem */
+    background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.15)), 
+                url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover; 
+    background-position: center;
+    position: absolute; 
+    top: -10%; /* Começa deslocada para cima */
+    will-change: transform; /* Otimização de performance */
+    z-index: -2; /* Garante que fique atrás do gradiente de fallback */
+}
+
+.hero-content { max-width: 800px; padding: 20px; z-index: 10; }
+.subtitle { letter-spacing: 4px; font-size: 0.9rem; margin-bottom: 20px; font-weight: 300; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 20px; line-height: 1.1; color: var(--text-light); }
+.hero h1 i { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+.description { font-size: 1.1rem; margin-bottom: 40px; font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9; }
+
+/* Botões */
+.hero-buttons { display: flex; gap: 20px; justify-content: center; }
+.btn-primary, .btn-secondary { padding: 15px 35px; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.8rem; letter-spacing: 1px; transition: var(--transition-slow); }
+.btn-primary { background: white; color: black; }
+.btn-primary:hover { background: var(--accent); color: white; transform: translateY(-3px); }
+.btn-secondary { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
+.btn-secondary:hover { background: white; color: black; }
+
+/* Indicador de Scroll */
+.scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10; }
+.scroll-indicator span { font-size: 10px; letter-spacing: 4px; font-weight: 300; opacity: 0.7; }
+.line-down { width: 1px; height: 40px; background: linear-gradient(to bottom, white, transparent); animation: scrollLine 2s infinite; }
+
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ========================================================== */
+/* SECTION 2: PRODUTOS (Nova Section)                      */
+/* ========================================================== */
+.products-section { padding: 100px 0; background-color: var(--bg-color); }
+
+.products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+.products-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; line-height: 1.2; }
+.products-header h2 i { font-style: italic; }
+
+.view-all { font-size: 0.7rem; letter-spacing: 2px; text-decoration: none; color: var(--text-dark); opacity: 0.6; display: flex; align-items: center; gap: 10px; transition: var(--transition-fast); }
+.view-all:hover { opacity: 1; color: var(--accent-dark); }
+.view-all .arrow { transition: transform 0.3s ease; }
+.view-all:hover .arrow { transform: translateX(5px); }
+
+/* Grade de Produtos */
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+
+/* Card do Produto */
+.product-card { background: white; border-radius: 15px; padding: 25px; position: relative; text-align: left; transition: var(--transition-slow); box-shadow: 0 10px 30px rgba(0,0,0,0.02); overflow: hidden; /* Importante para hover */ }
+
+/* Efeito de Hover no Card (Sombra e Levantar) */
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+
+/* Bagdes (Tags) */
+.product-badge { position: absolute; top: 20px; left: 20px; background-color: var(--badge-bg); color: #555; padding: 6px 15px; font-size: 0.65rem; letter-spacing: 1.5px; font-weight: 500; border-radius: 20px; z-index: 5; }
+.product-badge.accent { background-color: #f6efe1; color: var(--accent-dark); }
+
+/* Container da Imagem */
+.product-image { width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; overflow: hidden; }
+.product-image img { max-width: 100%; max-height: 100%; object-fit: contain; transition: var(--transition-slow); }
+
+/* Efeito de Hover na Imagem (Zoom sutil) */
+.product-card:hover .product-image img { transform: scale(1.05); }
+
+/* Detalhes do Produto */
+.product-category { font-size: 0.65rem; color: #999; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
+.product-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 400; color: var(--text-dark); margin-bottom: 12px; }
+.product-price { font-size: 1.1rem; font-weight: 300; color: var(--text-dark); }
+
+/* Card em Destaque (Estilo opcional diferente) */
+.product-card.highlight { background-color: #faf7f2; }
+
+/* ========================================================== */
+/* ANIMAÇÕES DE ENTRADA (JavaScript ativa)                  */
+/* ========================================================== */
+.js-reveal, .js-product-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-slow);
+}
+
+.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================================== */
+/* SECTION 3: AMBIENTES (Explore por ambiente)              */
+/* ========================================================== */
+.environments-section {
+    padding: 100px 0;
+    background-color: var(--bg-color);
+}
+
+.section-title-center {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title-center h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.section-title-center h2 i {
+    font-style: italic;
+}
+
+/* Grid com 2 colunas */
+.environments-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.env-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden; /* Corta a imagem quando ela der zoom */
+    height: 600px;
+    cursor: pointer;
+}
+
+/* Wrapper para controlar o zoom */
+.env-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.env-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1); /* Zoom suave e lento */
+}
+
+/* Overlay para escurecer levemente no hover */
+.env-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+    transition: background 0.5s ease;
+    z-index: 1;
+}
+
+/* Efeito de HOVER */
+.env-card:hover .env-image-wrapper img {
+    transform: scale(1.1); /* O zoom que você pediu */
+}
+
+.env-card:hover .env-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+/* Texto sobre a imagem */
+.env-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: white;
+    z-index: 2;
+}
+
+.env-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.env-content p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================================== */
+/* SECTION 4: FILOSOFIA (Dark Section)                      */
+/* ========================================================== */
+.philosophy-section {
+    background-color: #1a1a1a; /* Fundo escuro conforme a imagem */
+    color: var(--text-light);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.scrolling-text-container {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center; /* Centraliza o texto inicialmente */
+}
+
+.scrolling-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 12vw;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    will-change: transform;
+    /* Começa deslocado um pouco para a esquerda para ter margem de movimento */
+    transform: translateX(-20%); 
+}
+/* Grid de Conteúdo */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.philosophy-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin: 20px 0 30px;
+}
+
+.philosophy-content h2 i { font-style: italic; font-weight: 400; }
+
+.description-text {
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* Estatísticas */
+.philosophy-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-content: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--text-light);
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-top: 5px;
+}
+
+/* Botão Outline */
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-outline:hover {
+    background: var(--text-light);
+    color: #1a1a1a;
+}
+
+/* ========================================================== */
+/* FOOTER                                                   */
+/* ========================================================== */
+.main-footer {
+    padding: 80px 0 40px;
+    background-color: #ffffff; /* Fundo branco conforme imagem */
+    border-top: 1px solid #eee;
+    color: var(--text-dark);
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.footer-brand .logo {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.footer-brand p {
+    max-width: 280px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.7;
+    margin-bottom: 25px;
+}
+
+.footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.footer-column h4 {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #999;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    opacity: 0.6;
+    transition: var(--transition-fast);
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+    color: var(--accent-dark);
+}
+
+/* Newsletter Section */
+.footer-newsletter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+}
+
+.newsletter-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.newsletter-text p {
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    padding: 15px 20px;
+    width: 300px;
+    border: none;
+    background-color: #f7f7f7;
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.newsletter-form button {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 0 30px;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.newsletter-form button:hover {
+    background-color: var(--accent-dark);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Responsividade Básica */
+@media (max-width: 992px) {
+    .footer-top, .footer-newsletter {
+        flex-direction: column;
+        align-items: flex-start;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .newsletter-form {
+        width: 100%;
+    }
+    .newsletter-form input {
+        width: 100%;
+    }
+}
+

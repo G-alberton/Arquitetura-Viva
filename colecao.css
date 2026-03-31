@@ -1,0 +1,204 @@
+/* ==========================================================
+   1. CONFIGURAÇÕES GERAIS (ESTÉLICA PREMIUM)
+   ========================================================== */
+:root {
+    --bg-color: #f5f2ed;
+    --text-dark: #1a1a1a;
+    --text-muted: #666;
+    --text-light: #ffffff;
+    --accent: #c5a880;
+    --accent-dark: #a68b60;
+    
+    --transition-slow: all 0.9s cubic-bezier(0.2, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
+    --transition-zoom: transform 1.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-dark); 
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 0 5%; 
+}
+
+/* ==========================================================
+   2. NAVBAR
+   ========================================================== */
+.navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    background: var(--bg-color);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: var(--transition-fast);
+}
+
+.logo { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.4rem; 
+    font-weight: bold; 
+    letter-spacing: 2px;
+}
+
+.nav-links { display: flex; list-style: none; gap: 35px; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    transition: var(--transition-fast);
+}
+.nav-links a.active, .nav-links a:hover { opacity: 1; color: var(--accent-dark); }
+
+.nav-icons { display: flex; gap: 20px; }
+.icon-btn { background: none; border: none; cursor: pointer; color: var(--text-dark); }
+
+/* ==========================================================
+   3. INTRODUÇÃO DA COLEÇÃO
+   ========================================================== */
+.collection-intro { padding: 180px 0 80px; text-align: center; }
+.subtitle-top { font-size: 0.7rem; letter-spacing: 4px; color: var(--accent-dark); margin-bottom: 20px; }
+.main-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 25px; }
+.main-title i { font-weight: 400; font-style: italic; }
+.intro-description { max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; }
+
+/* ==========================================================
+   4. IMAGENS DE AMBIENTE (ZOOM DE IMPACTO)
+   ========================================================== */
+.env-image-container, .ambiente-card {
+    position: relative;
+    width: 100%;
+    height: 70vh; 
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.env-image-container img, .ambiente-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-zoom);
+}
+
+.env-image-container:hover img, .ambiente-card:hover img {
+    transform: scale(1.08);
+}
+
+.env-overlay-simple, .ambiente-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 50px;
+    color: var(--text-light);
+    pointer-events: none;
+}
+
+.env-info-box h2, .ambiente-overlay h3 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 3rem; 
+    margin-bottom: 10px;
+}
+
+/* ==========================================================
+   5. GRID DE PRODUTOS (AJUSTE DE TAMANHO MENOR)
+   ========================================================== */
+.ambientes-section { padding-bottom: 100px; }
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Grid mais compacto */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.product-card-modern {
+    background: white;
+    border-radius: 20px;
+    padding: 15px; /* Padding reduzido para um look mais clean */
+    position: relative;
+    max-width: 340px; /* Limita o crescimento excessivo */
+    margin: 0 auto;
+    transition: var(--transition-slow);
+}
+
+.product-card-modern:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.product-image-wrapper {
+    aspect-ratio: 1/1;
+    background: #f9f9f9;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image-wrapper img {
+    width: 85%; /* Imagem menor dentro do container (respiro) */
+    height: 85%;
+    object-fit: contain;
+    transition: var(--transition-zoom);
+}
+
+.product-card-modern:hover .product-image-wrapper img {
+    transform: scale(1.08);
+}
+
+.badge-float {
+    position: absolute; top: 25px; left: 25px;
+    background: rgba(255,255,255,0.9);
+    padding: 4px 10px; font-size: 0.55rem; font-weight: 700;
+    text-transform: uppercase; border-radius: 50px;
+    z-index: 10;
+}
+
+.product-meta .product-category { font-size: 0.6rem; letter-spacing: 2px; color: var(--accent-dark); text-transform: uppercase; }
+.product-meta .product-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin: 5px 0; }
+.product-meta .product-price { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+
+.btn-add-cart {
+    position: absolute; right: 20px; bottom: 20px;
+    width: 40px; height: 40px;
+    background: var(--text-dark); color: white;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition-fast);
+}
+.btn-add-cart:hover { background: var(--accent); }
+
+/* ==========================================================
+   6. FOOTER E REVELAÇÃO
+   ========================================================== */
+.main-footer { padding: 60px 0; border-top: 1px solid rgba(0,0,0,0.05); text-align: center; font-size: 0.9rem; color: var(--text-muted); }
+
+.js-reveal { opacity: 0; transform: translateY(30px); transition: var(--transition-slow); }
+.reveal-active { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .env-image-container, .ambiente-card { height: 50vh; }
+    .env-overlay-simple, .ambiente-overlay { padding: 30px; }
+    .env-info-box h2, .ambiente-overlay h3 { font-size: 2rem; }
+    .products-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleções | Arquitetura Viva</title>
+    <link rel="stylesheet" href="colecao.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Arquitetura Viva</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="#" class="active">COLEÇÕES</a></li>
+                <li><a href="#">AMBIENTES</a></li>
+                <li><a href="#">SOB MEDIDA</a></li>
+                <li><a href="#">ATELIER</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icons">
+            <button class="icon-btn" aria-label="Pesquisar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <button class="icon-btn" aria-label="Carrinho">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="collection-intro js-reveal">
+        <div class="container">
+            <p class="subtitle-top">NOSSAS COLEÇÕES</p>
+            <h1 class="main-title">Ambientes que<br><i>inspiram viver</i></h1>
+            <p class="intro-description">Explore nossas coleções curadas por ambiente e descubra peças que transformam cada cômodo em uma experiência sensorial.</p>
+        </div>
+    </main>
+
+    <section class="collection-highlight container js-reveal">
+        <div class="env-image-container">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80" alt="Sala de Estar">
+            <div class="env-overlay-simple"></div>
+            <div class="env-info-box">
+                <h2>Sala de Estar</h2>
+                <p>Onde o conforto encontra a sofisticação para os seus melhores momentos.</p>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card-modern js-reveal">
+                <span class="badge-float">Destaque</span>
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=600&auto=format" alt="Poltrona Éden">
+                </div>
+                <div class="product-meta">
+                    <span class="product-category">Poltronas</span>
+                    <h4 class="product-name">Poltrona Éden</h4>
+                    <p class="product-price">R$ 7.490</p>
+                </div>
+                <div class="btn-add-cart"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="product-card-modern js-reveal">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=600&auto=format" alt="Sofá Minimalist">
+                </div>
+                <div class="product-meta">
+                    <span class="product-category">Sofás</span>
+                    <h4 class="product-name">Sofá Minimalist</h4>
+                    <p class="product-price">R$ 12.800</p>
+                </div>
+                <div class="btn-add-cart"><i class="fas fa-plus"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ambientes-section container">
+    <div class="ambiente-card js-reveal">
+        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1600&auto=format" alt="Sala de Jantar Luxo">
+        <div class="ambiente-overlay">
+            <h3>Sala de Jantar</h3>
+            <p>Design que celebra o encontro e a alta gastronomia em casa.</p>
+        </div>
+    </div>
+    
+    <div class="products-grid">
+        <div class="product-card-modern js-reveal">
+            <span class="badge-float">Novo</span>
+            <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format" alt="Mesa Noir">
+            </div>
+            <div class="product-meta">
+                <span class="product-category">Mesas</span>
+                <h4 class="product-name">Mesa Noir</h4>
+                <p class="product-price">R$ 9.200</p>
+            </div>
+            <div class="btn-add-cart"><i class="fas fa-plus"></i></div>
+        </div>
+    </div>
+</section>
+
+    <section class="ambientes-section container">
+        <div class="ambiente-card js-reveal">
+            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=1600&auto=format" alt="Quartos">
+            <div class="ambiente-overlay">
+                <h3>Quartos</h3>
+                <p>Seu santuário particular de calma e bem-estar.</p>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card-modern js-reveal">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=600&auto=format" alt="Cama Velvet">
+                </div>
+                <div class="product-meta">
+                    <span class="product-category">Camas</span>
+                    <h4 class="product-name">Cama Velvet</h4>
+                    <p class="product-price">R$ 15.500</p>
+                </div>
+                <div class="btn-add-cart"><i class="fas fa-plus"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Arquitetura Viva. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

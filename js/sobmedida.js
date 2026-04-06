@@ -1,8 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. Efeito Parallax da Imagem
 gsap.to(".parallax-img", {
-    yPercent: -20, // Move a imagem para cima conforme desce o scroll
+    yPercent: -20, 
     ease: "none",
     scrollTrigger: {
         trigger: ".hero-section",
@@ -12,7 +11,6 @@ gsap.to(".parallax-img", {
     }
 });
 
-// 2. Animação de Entrada
 window.addEventListener('load', () => {
     const tl = gsap.timeline();
 

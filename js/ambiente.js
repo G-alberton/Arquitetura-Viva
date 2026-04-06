@@ -1,10 +1,8 @@
-// Registra o plugin para evitar erros
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('main-nav');
 
-    // 1. Navbar: Troca de cor estável
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
@@ -13,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Animação Hero (Entrada)
     const tl = gsap.timeline();
     
     tl.from(".hero-title", {
@@ -30,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         stagger: 0.2
     }, "-=1");
 
-    // 3. Animação de Scroll (Parágrafo inferior)
     gsap.from(".reveal-text", {
         scrollTrigger: {
             trigger: ".description-section",
@@ -42,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power2.out"
     });
 
-    // Animação de revelação para cada item de ambiente
     gsap.utils.toArray(".js-reveal").forEach((item) => {
         gsap.from(item, {
             scrollTrigger: {

@@ -9,7 +9,6 @@
 
 body { font-family: var(--font-main); background: var(--white); overflow-x: hidden; }
 
-/* NAVBAR FIXA */
 .navbar {
     position: fixed;
     top: 0; width: 100%;
@@ -28,7 +27,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
 
 .icon { width: 20px; height: 20px; cursor: pointer; }
 
-/* HERO SECTION */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -37,10 +35,9 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: #222; /* Cor de segurança */
+    background: #222; 
 }
 
-/* Camada da Imagem */
 .hero-parallax-container {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -49,13 +46,12 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
 
 .parallax-img {
     width: 100%;
-    height: 120%; /* Maior para o efeito de subida */
+    height: 120%; 
     background-size: cover;
     background-position: center;
     transform: translateY(0);
 }
 
-/* Overlay para escurecer a madeira */
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -63,7 +59,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     z-index: 2;
 }
 
-/* CONTEÚDO (Sempre na frente) */
 .hero-content {
     position: relative;
     z-index: 10;
@@ -96,7 +91,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     opacity: 0.9;
 }
 
-/* O BOTÃO */
 .btn-cta {
     display: inline-flex;
     align-items: center;
@@ -205,7 +199,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     font-weight: 300;
 }
 
-/* Responsivo */
 @media (max-width: 992px) {
     .process-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -224,7 +217,7 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
 
 .materials-section {
     padding: 120px 5%;
-    background-color: #f9f9f9; /* Um fundo levemente diferente para separar as seções */
+    background-color: #f9f9f9; 
 }
 
 .materials-container {
@@ -267,10 +260,10 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     font-weight: 300;
 }
 
-/* Lista de Benefícios */
+
 .benefits-list {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas para os itens da lista */
+    grid-template-columns: 1fr 1fr; 
     gap: 20px 30px;
     list-style: none;
 }
@@ -287,10 +280,9 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
 .check-icon {
     width: 18px;
     height: 18px;
-    color: #bfa37e; /* Um tom dourado/madeira para os checks */
+    color: #bfa37e; 
 }
 
-/* Responsividade */
 @media (max-width: 992px) {
     .materials-container {
         grid-template-columns: 1fr;
@@ -335,7 +327,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     font-weight: 300;
 }
 
-/* Estrutura do Formulário */
 .quote-form {
     display: flex;
     flex-direction: column;
@@ -344,7 +335,7 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
 
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    grid-template-columns: 1fr 1fr; 
     gap: 30px;
 }
 
@@ -379,7 +370,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     background-color: #fff;
 }
 
-/* Botão de Envio */
 .btn-submit {
     background-color: var(--black);
     color: var(--white);
@@ -401,13 +391,12 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
 
 .btn-submit:hover {
     background-color: #333;
-    letter-spacing: 3px; /* Leve expansão no hover */
+    letter-spacing: 3px; 
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .form-grid {
-        grid-template-columns: 1fr; /* Coluna única no mobile */
+        grid-template-columns: 1fr; 
     }
     
     .quote-title {
@@ -472,7 +461,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     padding-left: 5px;
 }
 
-/* Newsletter */
 .footer-newsletter {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -527,7 +515,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     transition: 0.3s;
 }
 
-/* Bottom */
 .footer-bottom {
     max-width: 1200px;
     margin: 0 auto;
@@ -547,7 +534,6 @@ body { font-family: var(--font-main); background: var(--white); overflow-x: hidd
     color: #999;
 }
 
-/* Responsivo */
 @media (max-width: 992px) {
     .footer-container {
         grid-template-columns: 1fr 1fr;

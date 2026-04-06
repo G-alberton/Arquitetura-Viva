@@ -15,7 +15,6 @@ body {
     overflow-x: hidden; 
 }
 
-/* --- NAVBAR PERSISTENTE --- */
 .navbar {
     display: flex; 
     justify-content: space-between; 
@@ -25,11 +24,10 @@ body {
     top: 0;
     left: 0;
     width: 100%; 
-    z-index: 9999; /* Garante que nunca fique atrás da imagem */
+    z-index: 9999; 
     transition: var(--transition-slow);
 }
 
-/* Cores Iniciais (Sobre o Hero) */
 .navbar .logo { 
     font-family: 'Playfair Display', serif; 
     font-size: 1.5rem; 
@@ -52,7 +50,6 @@ body {
 .icon-btn { background: none; border: none; cursor: pointer; color: var(--text-light); position: relative; }
 .cart-count { font-size: 10px; position: absolute; top: -5px; right: -8px; }
 
-/* NAVBAR SCROLLED (Ao descer) */
 .navbar.scrolled {
     padding: 15px 5%;
     background-color: rgba(255, 255, 255, 0.95);
@@ -65,7 +62,6 @@ body {
 .navbar.scrolled .nav-links a.active { border-bottom: 1px solid var(--text-dark); }
 .navbar.scrolled .icon-svg { stroke: var(--text-dark); }
 
-/* --- HERO SECTION --- */
 .hero { 
     height: 100vh; 
     width: 100%; 
@@ -101,12 +97,11 @@ body {
     background: linear-gradient(to bottom, transparent, var(--bg-color));
 }
 
-/* --- DESCRIÇÃO (ScrollTrigger) --- */
 .description-section { padding: 120px 10%; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .line-decorator { width: 1px; height: 60px; background: #ccc; margin-bottom: 40px; }
 .reveal-text { max-width: 800px; font-size: 1.3rem; line-height: 1.8; color: #555; font-weight: 300; }
 
-/* --- SEÇÃO DETALHE DE AMBIENTES --- */
+
 .environments-detail {
     padding: 100px 5%;
     background-color: var(--bg-color);
@@ -117,12 +112,11 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
-    max-width: 1200px;      /* Largura máxima para não esticar demais */
-    margin: 0 auto 150px;   /* Centraliza e dá espaço para a próxima seção */
+    max-width: 1200px;      
+    margin: 0 auto 150px;
     padding: 0 5%;
 }
 
-/* Inverter ordem para itens pares (opcional para ritmo visual) */
 .env-item:nth-child(even) {
     direction: rtl;
 }
@@ -134,7 +128,7 @@ body {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    height: 550px; /* Mantém a altura padrão das outras fotos */
+    height: 550px; 
 }
 
 .env-image img {
@@ -269,7 +263,6 @@ body {
 
 .footer-col ul li a:hover { color: var(--accent); }
 
-/* Newsletter */
 .newsletter-section {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -312,7 +305,6 @@ body {
 
 .newsletter-form button:hover { opacity: 0.8; }
 
-/* Bottom */
 .footer-bottom {
     max-width: 1200px;
     margin: 0 auto;
@@ -335,7 +327,6 @@ body {
     .newsletter-form input { width: 100%; }
 }
 
-/* Responsividade */
 @media (max-width: 992px) {
     .env-item {
         grid-template-columns: 1fr;
@@ -344,7 +335,7 @@ body {
     }
     
     .env-item .env-info {
-        order: 2; /* Texto vai para baixo da foto no mobile */
+        order: 2; 
     }
     
     .env-item .env-image {

@@ -1,8 +1,3 @@
-/* ============================================
-   CART.CSS — Arquitetura Viva
-   Drawer de Carrinho e Checkout
-   ============================================ */
-
 :root {
     --bg-color: #f5f2ed;
     --bg-card: #ffffff;
@@ -15,7 +10,6 @@
     --transition-med: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-/* ---- CART DRAWER ---- */
 .cart-drawer {
     position: fixed;
     top: 0;
@@ -52,7 +46,6 @@
     pointer-events: all;
 }
 
-/* Header */
 .cart-header {
     padding: 30px;
     border-bottom: 1px solid var(--border);
@@ -80,7 +73,6 @@
 
 .btn-close-cart:hover { transform: rotate(90deg); opacity: 0.6; }
 
-/* Items List */
 .cart-items {
     flex: 1;
     overflow-y: auto;
@@ -150,7 +142,6 @@
 
 .btn-remove-item:hover { color: #e74c3c; }
 
-/* Footer */
 .cart-footer {
     padding: 30px;
     background: #fafafa;
@@ -183,7 +174,6 @@
 
 .btn-checkout:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
-/* Empty State */
 .cart-empty {
     height: 100%;
     display: flex;
@@ -196,7 +186,6 @@
 
 .cart-empty svg { margin-bottom: 20px; opacity: 0.3; }
 
-/* ---- CHECKOUT PAGE ---- */
 .checkout-section { padding: 140px 0 100px; }
 
 .checkout-grid {
@@ -261,7 +250,6 @@ input:focus { border-color: var(--accent); }
 .payment-method i { font-size: 1.2rem; margin-bottom: 8px; display: block; }
 .payment-method span { font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; }
 
-/* Order Summary */
 .order-summary {
     background: white;
     padding: 40px;
@@ -314,7 +302,6 @@ input:focus { border-color: var(--accent); }
 
 .btn-place-order:hover { background: var(--accent-dark); }
 
-/* ---- SUCCESS PAGE ---- */
 .success-section {
     height: 80vh;
     display: flex;

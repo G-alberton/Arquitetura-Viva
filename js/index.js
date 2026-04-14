@@ -72,21 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Seleciona todos os links que devem ter transição suave
     const links = document.querySelectorAll('a');
 
     links.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Verifica se o link é para outra página interna
             if (link.href.includes(window.location.origin)) {
-                e.preventDefault(); // Interrompe a mudança instantânea
+                e.preventDefault(); 
                 const target = link.href;
 
-                // Adiciona um efeito de fade no corpo do site
                 document.body.style.opacity = '0';
                 document.body.style.transition = 'opacity 0.5s ease';
 
-                // Muda de página após a animação acabar
+
                 setTimeout(() => {
                     window.location.href = target;
                 }, 500);

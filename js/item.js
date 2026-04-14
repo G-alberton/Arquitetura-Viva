@@ -1,13 +1,7 @@
-/* ============================================
-   ITEM.JS — Arquitetura Viva
-   Lógica da Página de Coleção + Viewer 3D
-   ============================================ */
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ==========================================
-       1. NAVBAR SCROLL BEHAVIOR
-    ========================================== */
     const navbar = document.getElementById('navbar');
 
     window.addEventListener('scroll', () => {
@@ -18,9 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* ==========================================
-       2. REVEAL ANIMATIONS (IntersectionObserver)
-    ========================================== */
     const sectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -45,16 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.js-product-reveal').forEach(card => productObserver.observe(card));
 
-    /* ==========================================
-       3. PAGE TRANSITION (fade-in on load)
-    ========================================== */
     document.body.style.opacity = '0';
     requestAnimationFrame(() => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     });
 
-    // Smooth page transitions for internal links
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
@@ -67,9 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ==========================================
-       4. FILTER TABS
-    ========================================== */
     const filterTabs = document.querySelectorAll('.filter-tab');
     const productCards = document.querySelectorAll('.product-card');
     const emptyState = document.getElementById('emptyState');
@@ -99,9 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ==========================================
-       5. SORT SELECT
-    ========================================== */
     const sortSelect = document.getElementById('sortSelect');
     const productsGrid = document.getElementById('productsGrid');
 
@@ -119,18 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach(card => productsGrid.appendChild(card));
     });
 
-    /* ==========================================
-       6. WISHLIST TOGGLE
-    ========================================== */
     document.querySelectorAll('.btn-wishlist').forEach(btn => {
         btn.addEventListener('click', () => {
             btn.classList.toggle('active');
         });
     });
 
-    /* ==========================================
-       7. COLOR DOTS
-    ========================================== */
     document.querySelectorAll('.card-colors').forEach(group => {
         group.querySelectorAll('.color-dot').forEach(dot => {
             dot.addEventListener('click', () => {
@@ -140,17 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ==========================================
-       8. CART SYSTEM (Handled by cart.js)
-    ========================================== */
-    // A lógica de adicionar ao carrinho agora é global no cart.js
-    // via event delegation.
-
-    /* ==========================================
-       9. 3D VIEWER MODAL
-    ========================================== */
-
-    // Product data for the modal
     const productData = {
         sofa: {
             name: 'Sofá Modular Infinity',
@@ -255,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentProduct = null;
     let threeScene = null;
 
-    // Open modal
     document.querySelectorAll('.btn-view3d').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -269,7 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function openModal(data) {
-        // Populate sidebar
         modalProductName.textContent = data.name;
         modalCategory.textContent = data.category;
         modalDesc.textContent = data.desc;
@@ -279,28 +241,22 @@ document.addEventListener('DOMContentLoaded', () => {
         specDimensions.textContent = data.dimensions;
         specMaterial.textContent = data.material;
 
-        // Cart button (handled by cart.js global listener)
         btnModalCart.dataset.productName = data.productName;
         btnModalCart.dataset.productPrice = data.productPrice;
         btnModalCart.dataset.productImg = data.img;
         
         btnModalCart.onclick = () => {
-            // cart.js will catch the click, we just close the modal
             setTimeout(() => closeModal(), 100);
         };
 
-        // Show modal
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
 
-        // Show loading
         viewerLoading.classList.remove('hidden');
         viewerHint.classList.remove('hidden');
 
-        // Init Three.js after a short delay (for transition)
         setTimeout(() => initThreeJS(data), 300);
 
-        // Hide hint after 4 seconds
         setTimeout(() => viewerHint.classList.add('hidden'), 4000);
     }
 
@@ -308,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('open');
         document.body.style.overflow = '';
 
-        // Cleanup Three.js
         if (threeScene) {
             threeScene.dispose();
             threeScene = null;
@@ -322,22 +277,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
 
-    /* ==========================================
-       10. THREE.JS 3D VIEWER
-    ========================================== */
 
     function initThreeJS(data) {
         const canvas = document.getElementById('canvas3d');
         const container = canvas.parentElement;
 
-        // Scene
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x0d0d0d);
 
-        // Subtle fog for depth
         scene.fog = new THREE.FogExp2(0x0d0d0d, 0.04);
 
-        // Camera
         const camera = new THREE.PerspectiveCamera(
             45,
             container.clientWidth / container.clientHeight,
@@ -347,7 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
         camera.position.set(3, 2.5, 4);
         camera.lookAt(0, 0, 0);
 
-        // Renderer
         const renderer = new THREE.WebGLRenderer({
             canvas,
             antialias: true,
@@ -361,12 +309,9 @@ document.addEventListener('DOMContentLoaded', () => {
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.2;
 
-        // Lights
-        // Ambient
         const ambientLight = new THREE.AmbientLight(0xfff8f0, 0.5);
         scene.add(ambientLight);
 
-        // Key light (warm studio)
         const keyLight = new THREE.DirectionalLight(0xfff5e0, 2.2);
         keyLight.position.set(6, 10, 6);
         keyLight.castShadow = true;
@@ -382,26 +327,21 @@ document.addEventListener('DOMContentLoaded', () => {
         keyLight.shadow.radius = 3;
         scene.add(keyLight);
 
-        // Fill light (cool blue)
         const fillLight = new THREE.DirectionalLight(0xd0e8ff, 0.7);
         fillLight.position.set(-6, 4, -4);
         scene.add(fillLight);
 
-        // Rim light (warm back)
         const rimLight = new THREE.DirectionalLight(0xffe0a0, 0.5);
         rimLight.position.set(2, -1, -6);
         scene.add(rimLight);
 
-        // Accent point light (warm amber)
         const pointLight = new THREE.PointLight(0xc5a880, 1.0, 18);
         pointLight.position.set(-3, 4, 2);
         scene.add(pointLight);
 
-        // Top hemisphere light for soft fill
         const hemiLight = new THREE.HemisphereLight(0xfff8f0, 0x1a1a2e, 0.4);
         scene.add(hemiLight);
 
-        // Floor (polished dark)
         const floorGeo = new THREE.PlaneGeometry(30, 30);
         const floorMat = new THREE.MeshStandardMaterial({
             color: 0x161616,
@@ -414,12 +354,10 @@ document.addEventListener('DOMContentLoaded', () => {
         floor.receiveShadow = true;
         scene.add(floor);
 
-        // Subtle grid on floor
         const gridHelper = new THREE.GridHelper(12, 24, 0x2a2a2a, 0x1e1e1e);
         gridHelper.position.y = -1.49;
         scene.add(gridHelper);
 
-        // Reflection plane (subtle)
         const reflGeo = new THREE.PlaneGeometry(30, 30);
         const reflMat = new THREE.MeshStandardMaterial({
             color: 0x111111,
@@ -433,14 +371,11 @@ document.addEventListener('DOMContentLoaded', () => {
         refl.position.y = -1.48;
         scene.add(refl);
 
-        // Build 3D model based on product shape
         const model = buildProductModel(data);
         scene.add(model);
 
-        // Hide loading
         viewerLoading.classList.add('hidden');
 
-        // Orbit controls (manual implementation)
         let isDragging = false;
         let previousMousePosition = { x: 0, y: 0 };
         let targetRotation = { x: 0.3, y: 0.5 };
@@ -450,7 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let autoRotate = false;
         let autoRotateSpeed = 0.005;
 
-        // Mouse events
         canvas.addEventListener('mousedown', (e) => {
             isDragging = true;
             previousMousePosition = { x: e.clientX, y: e.clientY };
@@ -468,7 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
             previousMousePosition = { x: e.clientX, y: e.clientY };
         });
 
-        // Touch events
         let lastTouchX = 0, lastTouchY = 0;
         canvas.addEventListener('touchstart', (e) => {
             lastTouchX = e.touches[0].clientX;
@@ -486,14 +419,12 @@ document.addEventListener('DOMContentLoaded', () => {
             lastTouchY = e.touches[0].clientY;
         }, { passive: false });
 
-        // Scroll zoom
         canvas.addEventListener('wheel', (e) => {
             e.preventDefault();
             targetZoom += e.deltaY * 0.005;
             targetZoom = Math.max(2, Math.min(8, targetZoom));
         }, { passive: false });
 
-        // View control buttons
         const btnFront = document.getElementById('btnFront');
         const btnSide = document.getElementById('btnSide');
         const btnTop = document.getElementById('btnTop');
@@ -534,7 +465,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btnAutoRotate.classList.toggle('active', autoRotate);
         });
 
-        // Resize handler
         function handleResize() {
             const w = container.clientWidth;
             const h = container.clientHeight;
@@ -545,7 +475,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('resize', handleResize);
 
-        // Animation loop
         let frameId;
         let time = 0;
 
@@ -553,24 +482,19 @@ document.addEventListener('DOMContentLoaded', () => {
             frameId = requestAnimationFrame(animate);
             time += 0.01;
 
-            // Auto rotate
             if (autoRotate) {
                 targetRotation.y += autoRotateSpeed;
             }
 
-            // Smooth interpolation
             currentRotation.x += (targetRotation.x - currentRotation.x) * 0.08;
             currentRotation.y += (targetRotation.y - currentRotation.y) * 0.08;
             currentZoom += (targetZoom - currentZoom) * 0.08;
 
-            // Apply rotation to model pivot
             model.rotation.x = currentRotation.x;
             model.rotation.y = currentRotation.y;
 
-            // Gentle floating animation
             model.position.y = Math.sin(time * 0.5) * 0.05;
 
-            // Camera zoom
             camera.position.set(
                 Math.sin(0) * currentZoom,
                 currentZoom * 0.6,
@@ -578,7 +502,6 @@ document.addEventListener('DOMContentLoaded', () => {
             );
             camera.lookAt(0, 0, 0);
 
-            // Animate point light
             pointLight.position.x = Math.sin(time * 0.3) * 4;
             pointLight.position.z = Math.cos(time * 0.3) * 4;
 
@@ -587,7 +510,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         animate();
 
-        // Dispose function
         threeScene = {
             dispose: () => {
                 cancelAnimationFrame(frameId);
@@ -597,11 +519,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
     }
-
-    /* ==========================================
-       11. 3D MODEL BUILDER
-       Builds parametric 3D models for each product
-    ========================================== */
 
     function buildProductModel(data) {
         const group = new THREE.Group();
@@ -628,21 +545,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const fabricMat = new THREE.MeshStandardMaterial({ color, roughness: 0.92, metalness: 0.0, envMapIntensity: 0.2 });
         const woodMat = new THREE.MeshStandardMaterial({ color: 0xc8a97a, roughness: 0.55, metalness: 0.05, envMapIntensity: 0.4 });
 
-        // Base / seat
         const seatGeo = new THREE.BoxGeometry(2.4, 0.3, 1.0);
         const seat = new THREE.Mesh(seatGeo, fabricMat);
         seat.position.y = 0.15;
         seat.castShadow = true;
         group.add(seat);
 
-        // Back cushion
         const backGeo = new THREE.BoxGeometry(2.4, 0.7, 0.25);
         const back = new THREE.Mesh(backGeo, fabricMat);
         back.position.set(0, 0.65, -0.38);
         back.castShadow = true;
         group.add(back);
 
-        // Seat cushions (2)
         for (let i = -1; i <= 1; i += 2) {
             const cushionGeo = new THREE.BoxGeometry(1.1, 0.22, 0.85);
             const cushion = new THREE.Mesh(cushionGeo, createMaterial(color, 0.95));
@@ -651,7 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
             group.add(cushion);
         }
 
-        // Armrests
         for (let i = -1; i <= 1; i += 2) {
             const armGeo = new THREE.BoxGeometry(0.2, 0.55, 1.0);
             const arm = new THREE.Mesh(armGeo, fabricMat);
@@ -660,7 +573,6 @@ document.addEventListener('DOMContentLoaded', () => {
             group.add(arm);
         }
 
-        // Legs (4)
         const legPositions = [[-1.05, -0.35], [1.05, -0.35], [-1.05, 0.35], [1.05, 0.35]];
         legPositions.forEach(([x, z]) => {
             const legGeo = new THREE.CylinderGeometry(0.04, 0.035, 0.25, 8);
@@ -677,28 +589,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const fabricMat = new THREE.MeshStandardMaterial({ color, roughness: 0.92, metalness: 0.0, envMapIntensity: 0.2 });
         const metalMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, roughness: 0.2, metalness: 0.9, envMapIntensity: 1.0 }); // gold legs
 
-        // Seat
         const seatGeo = new THREE.BoxGeometry(0.75, 0.25, 0.75);
         const seat = new THREE.Mesh(seatGeo, fabricMat);
         seat.position.y = 0.12;
         seat.castShadow = true;
         group.add(seat);
 
-        // Back
         const backGeo = new THREE.BoxGeometry(0.75, 0.7, 0.2);
         const back = new THREE.Mesh(backGeo, fabricMat);
         back.position.set(0, 0.6, -0.28);
         back.castShadow = true;
         group.add(back);
 
-        // Seat cushion
         const cushionGeo = new THREE.BoxGeometry(0.68, 0.15, 0.65);
         const cushion = new THREE.Mesh(cushionGeo, createMaterial(color, 0.95));
         cushion.position.y = 0.32;
         cushion.castShadow = true;
         group.add(cushion);
 
-        // Armrests
         for (let i = -1; i <= 1; i += 2) {
             const armGeo = new THREE.BoxGeometry(0.15, 0.45, 0.7);
             const arm = new THREE.Mesh(armGeo, fabricMat);
@@ -707,13 +615,11 @@ document.addEventListener('DOMContentLoaded', () => {
             group.add(arm);
         }
 
-        // Legs (4 angled)
         const legPositions = [[-0.28, -0.28], [0.28, -0.28], [-0.28, 0.28], [0.28, 0.28]];
         legPositions.forEach(([x, z]) => {
             const legGeo = new THREE.CylinderGeometry(0.025, 0.02, 0.35, 8);
             const leg = new THREE.Mesh(legGeo, metalMat);
             leg.position.set(x, -0.175, z);
-            // Slight angle outward
             leg.rotation.z = x > 0 ? 0.1 : -0.1;
             leg.rotation.x = z > 0 ? 0.1 : -0.1;
             leg.castShadow = true;
@@ -727,7 +633,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const woodMat = createMaterial(color, 0.6, 0.05);
         const darkWoodMat = createMaterial(0xa0784a, 0.7, 0.05);
 
-        // Tabletop
         const topGeo = new THREE.BoxGeometry(2.2, 0.1, 1.0);
         const top = new THREE.Mesh(topGeo, woodMat);
         top.position.y = 0.4;
@@ -735,38 +640,32 @@ document.addEventListener('DOMContentLoaded', () => {
         top.receiveShadow = true;
         group.add(top);
 
-        // Center support (T-shape base)
         const supportGeo = new THREE.BoxGeometry(0.15, 0.7, 0.6);
         const support = new THREE.Mesh(supportGeo, darkWoodMat);
         support.position.y = 0.0;
         support.castShadow = true;
         group.add(support);
 
-        // Base foot
         const footGeo = new THREE.BoxGeometry(0.8, 0.08, 0.6);
         const foot = new THREE.Mesh(footGeo, darkWoodMat);
         foot.position.y = -0.35;
         foot.castShadow = true;
         group.add(foot);
 
-        // Chairs (simplified, 2 visible)
         const chairColor = 0xd4b896;
         for (let i = -1; i <= 1; i += 2) {
             const chairGroup = new THREE.Group();
 
-            // Chair seat
             const cSeatGeo = new THREE.BoxGeometry(0.5, 0.08, 0.5);
             const cSeat = new THREE.Mesh(cSeatGeo, createMaterial(chairColor, 0.8));
             cSeat.position.y = 0;
             chairGroup.add(cSeat);
 
-            // Chair back
             const cBackGeo = new THREE.BoxGeometry(0.5, 0.4, 0.06);
             const cBack = new THREE.Mesh(cBackGeo, createMaterial(chairColor, 0.8));
             cBack.position.set(0, 0.24, -0.22);
             chairGroup.add(cBack);
 
-            // Chair legs
             [[-0.2, -0.2], [0.2, -0.2], [-0.2, 0.2], [0.2, 0.2]].forEach(([cx, cz]) => {
                 const cLegGeo = new THREE.CylinderGeometry(0.02, 0.02, 0.35, 6);
                 const cLeg = new THREE.Mesh(cLegGeo, createMaterial(chairColor, 0.7));
@@ -794,19 +693,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const metalMat = createMaterial(0xd4af37, 0.2, 0.9);
         const cordMat = createMaterial(0x1a1a1a, 0.9, 0.0);
 
-        // Cord
         const cordGeo = new THREE.CylinderGeometry(0.01, 0.01, 1.5, 6);
         const cord = new THREE.Mesh(cordGeo, cordMat);
         cord.position.y = 0.75;
         group.add(cord);
 
-        // Top fitting
         const fittingGeo = new THREE.CylinderGeometry(0.06, 0.06, 0.1, 12);
         const fitting = new THREE.Mesh(fittingGeo, metalMat);
         fitting.position.y = 0.05;
         group.add(fitting);
 
-        // Petals (5 petal shapes)
         const petalCount = 5;
         for (let i = 0; i < petalCount; i++) {
             const angle = (i / petalCount) * Math.PI * 2;
@@ -819,7 +715,6 @@ document.addEventListener('DOMContentLoaded', () => {
             group.add(petal);
         }
 
-        // Bulb
         const bulbGeo = new THREE.SphereGeometry(0.12, 12, 12);
         const bulbMat = new THREE.MeshStandardMaterial({
             color: 0xffeeaa,
@@ -831,7 +726,6 @@ document.addEventListener('DOMContentLoaded', () => {
         bulb.position.y = -0.22;
         group.add(bulb);
 
-        // Point light from bulb
         const bulbLight = new THREE.PointLight(0xffcc44, 1.5, 3);
         bulbLight.position.y = -0.22;
         group.add(bulbLight);
@@ -848,7 +742,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const shelfDepth = 0.4;
         const shelfCount = 5;
 
-        // Vertical frames (2)
         for (let i = -1; i <= 1; i += 2) {
             const frameGeo = new THREE.BoxGeometry(0.05, shelfHeight, shelfDepth);
             const frame = new THREE.Mesh(frameGeo, metalMat);
@@ -857,7 +750,6 @@ document.addEventListener('DOMContentLoaded', () => {
             group.add(frame);
         }
 
-        // Back panels (alternating)
         for (let i = 0; i < shelfCount - 1; i++) {
             if (i % 2 === 0) {
                 const panelGeo = new THREE.BoxGeometry(shelfWidth - 0.05, shelfHeight / shelfCount - 0.05, 0.02);
@@ -867,7 +759,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Shelves
         for (let i = 0; i <= shelfCount; i++) {
             const y = -shelfHeight / 2 + i * (shelfHeight / shelfCount);
             const shelfGeo = new THREE.BoxGeometry(shelfWidth, 0.04, shelfDepth);
@@ -878,7 +769,6 @@ document.addEventListener('DOMContentLoaded', () => {
             group.add(shelf);
         }
 
-        // Small decorative books on some shelves
         const bookColors = [0x8b4513, 0x2c5f8a, 0x4a7c4e, 0x8a6a2c];
         for (let s = 1; s < shelfCount; s++) {
             const y = -shelfHeight / 2 + s * (shelfHeight / shelfCount) + 0.1;
@@ -904,28 +794,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const woodMat = createMaterial(0x8b6f5e, 0.7, 0.05);
         const whiteMat = createMaterial(0xf5f0eb, 0.95, 0.0);
 
-        // Bed frame base
         const frameGeo = new THREE.BoxGeometry(2.0, 0.2, 2.2);
         const frame = new THREE.Mesh(frameGeo, woodMat);
         frame.position.y = -0.1;
         frame.castShadow = true;
         group.add(frame);
 
-        // Mattress
         const mattressGeo = new THREE.BoxGeometry(1.9, 0.25, 2.0);
         const mattress = new THREE.Mesh(mattressGeo, whiteMat);
         mattress.position.y = 0.225;
         mattress.castShadow = true;
         group.add(mattress);
 
-        // Headboard
         const headGeo = new THREE.BoxGeometry(2.0, 1.0, 0.15);
         const head = new THREE.Mesh(headGeo, fabricMat);
         head.position.set(0, 0.5, -1.0);
         head.castShadow = true;
         group.add(head);
 
-        // Headboard detail (tufted buttons)
         for (let row = 0; row < 3; row++) {
             for (let col = 0; col < 5; col++) {
                 const btnGeo = new THREE.SphereGeometry(0.04, 8, 8);
@@ -935,7 +821,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Pillow (2)
         for (let i = -1; i <= 1; i += 2) {
             const pillowGeo = new THREE.BoxGeometry(0.7, 0.18, 0.5);
             const pillow = new THREE.Mesh(pillowGeo, whiteMat);
@@ -944,14 +829,12 @@ document.addEventListener('DOMContentLoaded', () => {
             group.add(pillow);
         }
 
-        // Blanket
         const blanketGeo = new THREE.BoxGeometry(1.85, 0.12, 1.2);
         const blanket = new THREE.Mesh(blanketGeo, createMaterial(0xd4c4b0, 0.9));
         blanket.position.set(0, 0.41, 0.4);
         blanket.castShadow = true;
         group.add(blanket);
 
-        // Legs
         [[-0.9, -1.0], [0.9, -1.0], [-0.9, 1.0], [0.9, 1.0]].forEach(([x, z]) => {
             const legGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.25, 8);
             const leg = new THREE.Mesh(legGeo, woodMat);
@@ -970,4 +853,4 @@ document.addEventListener('DOMContentLoaded', () => {
         group.add(mesh);
     }
 
-}); // end DOMContentLoaded
+}); 

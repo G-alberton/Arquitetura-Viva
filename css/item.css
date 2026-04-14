@@ -1,8 +1,3 @@
-/* ============================================
-   ITEM.CSS — Arquitetura Viva
-   Página de Coleção com Visualização 3D
-   ============================================ */
-
 :root {
     --bg-color: #f5f2ed;
     --bg-card: #ffffff;
@@ -23,7 +18,6 @@
     --radius: 16px;
 }
 
-/* ---- RESET & BASE ---- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -45,7 +39,6 @@ body {
     padding: 0 5%;
 }
 
-/* ---- NAVBAR ---- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -132,7 +125,6 @@ body {
 
 .cart-count.visible { transform: scale(1); }
 
-/* ---- PAGE INTRO ---- */
 .page-intro {
     padding: 160px 0 80px;
     text-align: center;
@@ -167,7 +159,6 @@ body {
     line-height: 1.8;
 }
 
-/* ---- FILTER BAR ---- */
 .filter-bar {
     position: sticky;
     top: 70px;
@@ -242,7 +233,6 @@ body {
 
 .sort-select:hover { border-color: var(--accent); }
 
-/* ---- PRODUCTS SECTION ---- */
 .products-section {
     padding: 60px 0 100px;
 }
@@ -253,7 +243,6 @@ body {
     gap: 28px;
 }
 
-/* ---- PRODUCT CARD ---- */
 .product-card {
     background: var(--bg-card);
     border-radius: var(--radius);
@@ -291,7 +280,6 @@ body {
 .badge-bestseller { background: var(--accent); color: var(--text-light); }
 .badge-highlight { background: var(--accent-light); color: var(--accent-dark); }
 
-/* Card Image */
 .card-image-wrapper {
     position: relative;
     width: 100%;
@@ -310,7 +298,6 @@ body {
 
 .product-card:hover .card-img { transform: scale(1.04); }
 
-/* Card Overlay (hover) */
 .card-overlay {
     position: absolute;
     inset: 0;
@@ -373,7 +360,6 @@ body {
 .product-card:hover .btn-quick-add { transform: translateY(0); }
 .btn-quick-add:hover { background: white; color: var(--text-dark); }
 
-/* Card Info */
 .card-info {
     padding: 22px 24px 24px;
 }
@@ -462,7 +448,6 @@ body {
 .btn-add-cart svg { transition: transform 0.3s ease; }
 .btn-add-cart:hover svg { transform: translateX(3px); }
 
-/* Color Dots */
 .card-colors {
     display: flex;
     gap: 8px;
@@ -481,7 +466,6 @@ body {
 .color-dot:hover { transform: scale(1.2); }
 .color-dot.active { border-color: var(--text-dark); box-shadow: 0 0 0 2px var(--bg-color); }
 
-/* Reveal animations */
 .js-reveal, .js-product-reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -490,12 +474,10 @@ body {
 
 .reveal-active { opacity: 1; transform: translateY(0); }
 
-/* Product card hidden state */
 .product-card.hidden {
     display: none;
 }
 
-/* Empty state */
 .empty-state {
     text-align: center;
     padding: 80px 20px;
@@ -507,7 +489,6 @@ body {
 .empty-state svg { margin-bottom: 16px; opacity: 0.4; }
 .empty-state p { font-size: 0.9rem; letter-spacing: 1px; }
 
-/* ---- AMBIENT BANNER ---- */
 .ambient-banner {
     margin: 0 0 0;
 }
@@ -572,7 +553,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* ---- FOOTER ---- */
 .main-footer {
     padding: 80px 0 40px;
     background-color: #ffffff;
@@ -635,10 +615,6 @@ body {
 .footer-legal { display: flex; gap: 20px; }
 .footer-legal a { color: inherit; text-decoration: none; }
 
-/* ============================================
-   3D MODAL
-   ============================================ */
-
 .modal-3d {
     position: fixed;
     inset: 0;
@@ -687,7 +663,6 @@ body {
     transform: scale(1) translateY(0);
 }
 
-/* Modal Header */
 .modal-header {
     grid-column: 1 / -1;
     display: flex;
@@ -730,7 +705,6 @@ body {
 
 .modal-close:hover { background: rgba(255,255,255,0.18); transform: rotate(90deg); }
 
-/* 3D Viewer */
 .modal-viewer {
     position: relative;
     background: #111;
@@ -795,7 +769,6 @@ body {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* View Controls */
 .viewer-controls {
     position: absolute;
     top: 16px;
@@ -829,7 +802,6 @@ body {
     color: var(--accent);
 }
 
-/* Modal Sidebar */
 .modal-sidebar {
     background: #141414;
     border-left: 1px solid rgba(255,255,255,0.06);
@@ -965,7 +937,6 @@ body {
     color: rgba(255,255,255,0.8);
 }
 
-/* ---- CART TOAST ---- */
 .cart-toast {
     position: fixed;
     bottom: 30px;
@@ -993,10 +964,6 @@ body {
 }
 
 .cart-toast svg { color: #4caf50; flex-shrink: 0; }
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
 
 @media (max-width: 1100px) {
     .modal-content {

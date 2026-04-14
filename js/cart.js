@@ -1,8 +1,9 @@
-import { db } from "./firebase.js";
-import { collection, addDoc } from "firebase/firestore";
+/* ============================================
+   CART.JS — Arquitetura Viva
+   Lógica Global do Carrinho e Drawer
+   ============================================ */
 
 class CartSystem {
-
     constructor() {
         this.items = JSON.parse(localStorage.getItem('av_cart')) || [];
         this.drawer = null;
@@ -17,10 +18,12 @@ class CartSystem {
     }
 
     createDrawerUI() {
+        // Create Overlay
         this.overlay = document.createElement('div');
         this.overlay.className = 'cart-overlay';
         document.body.appendChild(this.overlay);
 
+        // Create Drawer
         this.drawer = document.createElement('div');
         this.drawer.className = 'cart-drawer';
         this.drawer.innerHTML = `
@@ -45,6 +48,7 @@ class CartSystem {
     }
 
     setupEventListeners() {
+        // Open cart on icon click
         const cartBtn = document.getElementById('cartBtn') || document.querySelector('.nav-cart');
         if (cartBtn) {
             cartBtn.addEventListener('click', (e) => {
@@ -53,9 +57,11 @@ class CartSystem {
             });
         }
 
+        // Close cart
         document.getElementById('closeCart').addEventListener('click', () => this.close());
         this.overlay.addEventListener('click', () => this.close());
 
+        // Checkout button
         document.getElementById('goToCheckout').addEventListener('click', () => {
             if (this.items.length > 0) {
                 window.location.href = 'checkout.html';
@@ -64,6 +70,7 @@ class CartSystem {
             }
         });
 
+        // Global Add to Cart listener (for dynamically added buttons)
         document.addEventListener('click', (e) => {
             const btn = e.target.closest('.btn-add-cart, .btn-quick-add, #btnModalCart');
             if (btn) {
@@ -170,31 +177,5 @@ class CartSystem {
     }
 }
 
-async function finalizarCompra() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        if (cart.length === 0) {
-            alert("Carrinho vazio!");
-            return;
-        }
-
-        try {
-            const pedido = {
-                items: cart,
-                total: cart.reduce((acc, item) => acc + item.price, 0),
-                createdAt: new Date()
-            };
-
-            await addDoc(collection(db, "orders"), pedido);
-
-            alert("Pedido enviado com sucesso!");
-
-            localStorage.removeItem('cart');
-
-        } catch (error) {
-            console.error(error);
-            alert("Erro ao enviar pedido");
-        }
-    }
-
+// Initialize globally
 window.cart = new CartSystem();

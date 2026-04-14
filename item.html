@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleção | Arquitetura Viva</title>
+    <link rel="stylesheet" href="css/item.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <a href="index.html"><div class="logo">Arquitetura Viva</div></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="colecao.html">COLEÇÕES</a></li>
+                <li><a href="ambientes.html">AMBIENTES</a></li>
+                <li><a href="sobmedida.html">SOB MEDIDA</a></li>
+                <li><a href="atelie.html">ATELIER</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icons">
+            <button class="icon-btn" aria-label="Pesquisar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <button class="icon-btn nav-cart" id="cartBtn" aria-label="Carrinho">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- PAGE INTRO -->
+    <section class="page-intro js-reveal">
+        <div class="container">
+            <p class="subtitle-top">NOSSA COLEÇÃO</p>
+            <h1 class="main-title">Peças que <i>definem</i><br>cada espaço</h1>
+            <p class="intro-desc">Cada peça é concebida para transformar ambientes. Explore, visualize em 3D e encontre a peça perfeita para o seu espaço.</p>
+        </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section class="filter-bar">
+        <div class="container">
+            <div class="filter-inner">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">TODOS</button>
+                    <button class="filter-tab" data-filter="sofas">SOFÁS</button>
+                    <button class="filter-tab" data-filter="poltronas">POLTRONAS</button>
+                    <button class="filter-tab" data-filter="mesas">MESAS</button>
+                    <button class="filter-tab" data-filter="iluminacao">ILUMINAÇÃO</button>
+                    <button class="filter-tab" data-filter="estantes">ESTANTES</button>
+                </div>
+                <div class="filter-sort">
+                    <span class="sort-label">ORDENAR:</span>
+                    <select class="sort-select" id="sortSelect">
+                        <option value="default">Destaque</option>
+                        <option value="price-asc">Menor Preço</option>
+                        <option value="price-desc">Maior Preço</option>
+                        <option value="name">Nome A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS GRID -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+
+                <!-- Produto 1: Sofá Modular Infinity -->
+                <div class="product-card js-product-reveal" data-category="sofas" data-price="18900" data-name="Sofá Modular Infinity">
+                    <div class="card-badges">
+                        <span class="badge badge-bestseller">BEST SELLER</span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="image/sofa-hero.jpg" alt="Sofá Modular Infinity" class="card-img" loading="lazy">
+                        <div class="card-overlay">
+                            <button class="btn-view3d" data-product="sofa" aria-label="Visualizar em 3D">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                VISUALIZAR 3D
+                            </button>
+                            <button class="btn-quick-add" data-product-id="1" data-product-name="Sofá Modular Infinity" data-product-price="18900">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="card-category">SOFÁS</span>
+                            <button class="btn-wishlist" aria-label="Favoritar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            </button>
+                        </div>
+                        <h3 class="card-name">Sofá Modular Infinity</h3>
+                        <p class="card-desc">Conforto e versatilidade em tecido linho natural com base em carvalho maciço.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 18.900</span>
+                            <button class="btn-add-cart" data-product-id="1" data-product-name="Sofá Modular Infinity" data-product-price="18900">
+                                ADICIONAR
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <div class="card-colors">
+                            <span class="color-dot active" style="background:#c8c8c8" title="Cinza Linho"></span>
+                            <span class="color-dot" style="background:#d4b896" title="Areia"></span>
+                            <span class="color-dot" style="background:#5c4a3a" title="Tabaco"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 2: Poltrona Éden -->
+                <div class="product-card js-product-reveal" data-category="poltronas" data-price="7490" data-name="Poltrona Éden">
+                    <div class="card-badges">
+                        <span class="badge badge-new">NOVO</span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="image/product-armchair.jpg" alt="Poltrona Éden" class="card-img" loading="lazy">
+                        <div class="card-overlay">
+                            <button class="btn-view3d" data-product="armchair" aria-label="Visualizar em 3D">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                VISUALIZAR 3D
+                            </button>
+                            <button class="btn-quick-add" data-product-id="2" data-product-name="Poltrona Éden" data-product-price="7490">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="card-category">POLTRONAS</span>
+                            <button class="btn-wishlist" aria-label="Favoritar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            </button>
+                        </div>
+                        <h3 class="card-name">Poltrona Éden</h3>
+                        <p class="card-desc">Veludo esmeralda com pés em latão escovado. Elegância atemporal para sala ou escritório.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 7.490</span>
+                            <button class="btn-add-cart" data-product-id="2" data-product-name="Poltrona Éden" data-product-price="7490">
+                                ADICIONAR
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <div class="card-colors">
+                            <span class="color-dot active" style="background:#3d6b4f" title="Esmeralda"></span>
+                            <span class="color-dot" style="background:#8b6f5e" title="Terracota"></span>
+                            <span class="color-dot" style="background:#2c3e50" title="Azul Noite"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 3: Mesa Orgânica -->
+                <div class="product-card js-product-reveal" data-category="mesas" data-price="12900" data-name="Mesa Orgânica">
+                    <div class="card-badges">
+                        <span class="badge badge-highlight">DESTAQUE</span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="image/product-table.jpg" alt="Mesa Orgânica" class="card-img" loading="lazy">
+                        <div class="card-overlay">
+                            <button class="btn-view3d" data-product="table" aria-label="Visualizar em 3D">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                VISUALIZAR 3D
+                            </button>
+                            <button class="btn-quick-add" data-product-id="3" data-product-name="Mesa Orgânica" data-product-price="12900">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="card-category">MESAS</span>
+                            <button class="btn-wishlist" aria-label="Favoritar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            </button>
+                        </div>
+                        <h3 class="card-name">Mesa Orgânica</h3>
+                        <p class="card-desc">Carvalho maciço certificado com acabamento natural. Acompanha 6 cadeiras em madeira clara.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 12.900</span>
+                            <button class="btn-add-cart" data-product-id="3" data-product-name="Mesa Orgânica" data-product-price="12900">
+                                ADICIONAR
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <div class="card-colors">
+                            <span class="color-dot active" style="background:#c8a97a" title="Carvalho Natural"></span>
+                            <span class="color-dot" style="background:#5c3d2e" title="Nogueira"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 4: Luminária Pátina -->
+                <div class="product-card js-product-reveal" data-category="iluminacao" data-price="3290" data-name="Luminária Pátina">
+                    <div class="card-image-wrapper">
+                        <img src="image/product-lamp.jpg" alt="Luminária Pátina" class="card-img" loading="lazy">
+                        <div class="card-overlay">
+                            <button class="btn-view3d" data-product="lamp" aria-label="Visualizar em 3D">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                VISUALIZAR 3D
+                            </button>
+                            <button class="btn-quick-add" data-product-id="4" data-product-name="Luminária Pátina" data-product-price="3290">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="card-category">ILUMINAÇÃO</span>
+                            <button class="btn-wishlist" aria-label="Favoritar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            </button>
+                        </div>
+                        <h3 class="card-name">Luminária Pátina</h3>
+                        <p class="card-desc">Pétalas em vidro soprado com acabamento âmbar. Luz quente e difusa para ambientes íntimos.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 3.290</span>
+                            <button class="btn-add-cart" data-product-id="4" data-product-name="Luminária Pátina" data-product-price="3290">
+                                ADICIONAR
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <div class="card-colors">
+                            <span class="color-dot active" style="background:#d4956a" title="Âmbar"></span>
+                            <span class="color-dot" style="background:#e8e0d5" title="Marfim"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 5: Estante Loft -->
+                <div class="product-card js-product-reveal" data-category="estantes" data-price="8900" data-name="Estante Loft">
+                    <div class="card-image-wrapper">
+                        <img src="image/product-shelf.jpg" alt="Estante Loft" class="card-img" loading="lazy">
+                        <div class="card-overlay">
+                            <button class="btn-view3d" data-product="shelf" aria-label="Visualizar em 3D">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                VISUALIZAR 3D
+                            </button>
+                            <button class="btn-quick-add" data-product-id="5" data-product-name="Estante Loft" data-product-price="8900">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="card-category">ESTANTES</span>
+                            <button class="btn-wishlist" aria-label="Favoritar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            </button>
+                        </div>
+                        <h3 class="card-name">Estante Loft</h3>
+                        <p class="card-desc">Estrutura em aço carbono com prateleiras em nogueira. Modular e expansível conforme o espaço.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 8.900</span>
+                            <button class="btn-add-cart" data-product-id="5" data-product-name="Estante Loft" data-product-price="8900">
+                                ADICIONAR
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <div class="card-colors">
+                            <span class="color-dot active" style="background:#2c2c2c" title="Preto Fosco"></span>
+                            <span class="color-dot" style="background:#8b7355" title="Bronze"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 6: Cama Velvet -->
+                <div class="product-card js-product-reveal" data-category="camas" data-price="15500" data-name="Cama Velvet">
+                    <div class="card-badges">
+                        <span class="badge badge-new">NOVO</span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="image/collection-bedroom.jpg" alt="Cama Velvet" class="card-img" style="object-fit:cover" loading="lazy">
+                        <div class="card-overlay">
+                            <button class="btn-view3d" data-product="bed" aria-label="Visualizar em 3D">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                VISUALIZAR 3D
+                            </button>
+                            <button class="btn-quick-add" data-product-id="6" data-product-name="Cama Velvet" data-product-price="15500">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="card-category">CAMAS</span>
+                            <button class="btn-wishlist" aria-label="Favoritar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            </button>
+                        </div>
+                        <h3 class="card-name">Cama Velvet</h3>
+                        <p class="card-desc">Cabeceira estofada em veludo com estrutura em madeira maciça. Sofisticação no quarto.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 15.500</span>
+                            <button class="btn-add-cart" data-product-id="6" data-product-name="Cama Velvet" data-product-price="15500">
+                                ADICIONAR
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <div class="card-colors">
+                            <span class="color-dot active" style="background:#7a6a8a" title="Ametista"></span>
+                            <span class="color-dot" style="background:#c8a97a" title="Champagne"></span>
+                            <span class="color-dot" style="background:#2c2c2c" title="Carvão"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty state -->
+            <div class="empty-state" id="emptyState" style="display:none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <p>Nenhum produto encontrado nesta categoria.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AMBIENT BANNER -->
+    <section class="ambient-banner js-reveal">
+        <div class="ambient-banner-inner">
+            <img src="image/ambiente-living.jpg" alt="Sala de Estar" class="ambient-bg">
+            <div class="ambient-overlay"></div>
+            <div class="ambient-content">
+                <p class="subtitle-top">INSPIRE-SE</p>
+                <h2>Veja nossas peças<br>em <i>ambientes reais</i></h2>
+                <a href="ambientes.html"><button class="btn-primary-light">EXPLORAR AMBIENTES</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h2 class="logo">Arquitetura Viva</h2>
+                    <p>Mobiliário de autor que transforma espaços em experiências.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4>COLEÇÕES</h4>
+                        <ul>
+                            <li><a href="#">Sofás</a></li>
+                            <li><a href="#">Poltronas</a></li>
+                            <li><a href="#">Mesas</a></li>
+                            <li><a href="#">Iluminação</a></li>
+                            <li><a href="#">Estantes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>EMPRESA</h4>
+                        <ul>
+                            <li><a href="atelie.html">Nosso Atelier</a></li>
+                            <li><a href="#">Sustentabilidade</a></li>
+                            <li><a href="#">Artesãos</a></li>
+                            <li><a href="#">Imprensa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>SUPORTE</h4>
+                        <ul>
+                            <li><a href="#">Contato</a></li>
+                            <li><a href="#">Entregas</a></li>
+                            <li><a href="#">Trocas</a></li>
+                            <li><a href="#">Garantia</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Arquitetura Viva. Feito por Gustavo Borghezan Alberton</p>
+                <div class="footer-legal">
+                    <a href="#">Privacidade</a>
+                    <a href="#">Termos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 3D VIEWER MODAL -->
+    <div class="modal-3d" id="modal3d" role="dialog" aria-modal="true" aria-label="Visualizador 3D">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="modal-label">VISUALIZAÇÃO 3D</span>
+                    <h3 class="modal-product-name" id="modalProductName">Sofá Modular Infinity</h3>
+                </div>
+                <button class="modal-close" id="modalClose" aria-label="Fechar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+
+            <!-- 3D Canvas Area -->
+            <div class="modal-viewer">
+                <canvas id="canvas3d"></canvas>
+
+                <!-- Controls hint -->
+                <div class="viewer-hint" id="viewerHint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    Arraste para girar · Scroll para zoom
+                </div>
+
+                <!-- Loading indicator -->
+                <div class="viewer-loading" id="viewerLoading">
+                    <div class="loading-spinner"></div>
+                    <span>Carregando modelo 3D...</span>
+                </div>
+
+                <!-- View controls -->
+                <div class="viewer-controls">
+                    <button class="view-btn" id="btnFront" title="Frente">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                        FRENTE
+                    </button>
+                    <button class="view-btn" id="btnSide" title="Lateral">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                        LATERAL
+                    </button>
+                    <button class="view-btn" id="btnTop" title="Topo">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                        TOPO
+                    </button>
+                    <button class="view-btn" id="btnPerspective" title="Perspectiva" class="active">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        3D
+                    </button>
+                    <button class="view-btn" id="btnAutoRotate" title="Auto-rotação">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                        AUTO
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Sidebar -->
+            <div class="modal-sidebar">
+                <div class="modal-product-info">
+                    <img class="modal-product-img" id="modalProductImg" src="" alt="">
+                    <div class="modal-product-details">
+                        <span class="modal-category" id="modalCategory">SOFÁS</span>
+                        <p class="modal-desc" id="modalDesc">Conforto e versatilidade em tecido linho natural.</p>
+                        <div class="modal-specs" id="modalSpecs">
+                            <div class="spec-row">
+                                <span class="spec-label">Dimensões</span>
+                                <span class="spec-value" id="specDimensions">240 × 95 × 80 cm</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Material</span>
+                                <span class="spec-value" id="specMaterial">Linho + Carvalho</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Prazo</span>
+                                <span class="spec-value">30 dias úteis</span>
+                            </div>
+                        </div>
+                        <div class="modal-price-row">
+                            <span class="modal-price" id="modalPrice">R$ 18.900</span>
+                        </div>
+                        <button class="btn-modal-cart" id="btnModalCart">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                            ADICIONAR AO CARRINHO
+                        </button>
+                        <a href="sobmedida.html" class="btn-modal-custom">PERSONALIZAR SOB MEDIDA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART TOAST -->
+    <div class="cart-toast" id="cartToast">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="cartToastMsg">Produto adicionado ao carrinho</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/item.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitetura Viva | Ambientes</title>
     <link rel="stylesheet" href="css/ambiente.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="navbar" id="main-nav">
-        <div class="logo">Arquitetura Viva</div>
+        <a href="index.html"><div class="logo">Arquitetura Viva</div></a> 
         <nav>
             <ul class="nav-links">
-                <li><a href="#">COLEÇÕES</a></li>
-                <li><a href="#" class="active">AMBIENTES</a></li>
-                <li><a href="#">SOB MEDIDA</a></li>
-                <li><a href="#">ATELIER</a></li>
+                <li><a href="colecao.html">COLEÇÕES</a></li>
+                <li><a href="ambientes.html" class="active">AMBIENTES</a></li>
+                <li><a href="sobmedida.html">SOB MEDIDA</a></li>
+                <li><a href="atelie.html">ATELIER</a></li>
             </ul>
         </nav>
         <div class="nav-icons">
             <button class="icon-btn">
                 <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </button>
-            <button class="icon-btn">
+            <button class="icon-btn nav-cart" id="cartBtn">
                 <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                <span class="cart-count">0</span>
+                <span class="cart-count" id="cartCount">0</span>
             </button>
         </div>
     </header>
@@ -75,7 +76,7 @@
                             <span class="category-tag">Estantes</span>
                         </div>
                         
-                        <a href="#" class="btn-explore">EXPLORAR PEÇAS <svg width="20" height="10" viewBox="0 0 25 12" fill="none"><path d="M1 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                        <a href="colecao.html" class="btn-explore">EXPLORAR PEÇAS <svg width="20" height="10" viewBox="0 0 25 12" fill="none"><path d="M1 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" stroke-width="1.5"/></svg></a>
                     </div>
                 </div>
 
@@ -100,7 +101,7 @@
                     <span class="category-tag">Enxoval premium</span>
                 </div>
                 
-                <a href="#" class="btn-explore">EXPLORAR PEÇAS <svg width="20" height="10" viewBox="0 0 25 12" fill="none"><path d="M1 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                <a href="colecao.html" class="btn-explore">EXPLORAR PEÇAS <svg width="20" height="10" viewBox="0 0 25 12" fill="none"><path d="M1 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" stroke-width="1.5"/></svg></a>
             </div>
         </section>
 
@@ -122,7 +123,7 @@
                     <span class="category-tag">Paisagismo</span>
                 </div>
                 
-                <a href="#" class="btn-explore">EXPLORAR PEÇAS <svg width="20" height="10" viewBox="0 0 25 12" fill="none"><path d="M1 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                <a href="colecao.html" class="btn-explore">EXPLORAR PEÇAS <svg width="20" height="10" viewBox="0 0 25 12" fill="none"><path d="M1 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" stroke-width="1.5"/></svg></a>
             </div>
         </section>
 
@@ -139,7 +140,7 @@
                     <span class="category-tag">Organizadores</span>
                 </div>
                 
-                <a href="#" class="btn-explore">EXPLORAR PEÇAS <svg width="20" height="10" viewBox="0 0 25 12" fill="none"><path d="M1 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                <a href="colecao.html" class="btn-explore">EXPLORAR PEÇAS <svg width="20" height="10" viewBox="0 0 25 12" fill="none"><path d="M1 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" stroke-width="1.5"/></svg></a>
             </div>
 
             <div class="env-image">
@@ -218,5 +219,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="js/ambiente.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>

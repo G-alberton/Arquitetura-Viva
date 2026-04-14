@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitetura Viva | Peças que definem espaços</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="navbar">
-        <div class="logo">Arquitetura Viva</div>
+        <a href="index.html"><div class="logo">Arquitetura Viva</div></a>
         <nav>
             <ul class="nav-links">
                 <li><a href="colecao.html">COLEÇÕES</a></li>
-                <li><a href="#">AMBIENTES</a></li>
-                <li><a href="#">SOB MEDIDA</a></li>
-                <li><a href="#">ATELIER</a></li>
+                <li><a href="ambientes.html">AMBIENTES</a></li>
+                <li><a href="sobmedida.html">SOB MEDIDA</a></li>
+                <li><a href="atelie.html">ATELIER</a></li>
             </ul>
         </nav>
         <div class="nav-icons">
             <button class="icon-btn" aria-label="Pesquisar">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
-            <button class="icon-btn" aria-label="Carrinho">
+            <button class="icon-btn nav-cart" id="cartBtn" aria-label="Carrinho">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                <span class="cart-count">0</span>
+                <span class="cart-count" id="cartCount">0</span>
             </button>
         </div>
     </header>
@@ -39,7 +40,7 @@
             <p class="description">Móveis que transcendem o tempo. Design que respeita o espaço. Materiais que contam histórias.</p>
             <div class="hero-buttons">
                 <a href="colecao.html"><button class="btn-primary">EXPLORAR COLEÇÃO</button></a>
-                <button class="btn-secondary">NOSSO ATELIER</button>
+                <a href="atelie.html"><button class="btn-secondary">NOSSO ATELIER</button></a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -52,7 +53,7 @@
         <div class="container">
             <div class="products-header">
                 <h2>Peças que<br>definem espaços</h2>
-                <a href="#" class="view-all">VER TODA A COLEÇÃO 
+                <a href="colecao.html" class="view-all">VER TODA A COLEÇÃO 
                     <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>
@@ -63,22 +64,26 @@
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=500&q=80" alt="Poltrona Éden">
                     </div>
-                    <div class="product-details">
-                        <p class="product-category">POLTRONAS</p>
-                        <h3 class="product-title">Poltrona Éden</h3>
-                        <p class="product-price">R$ 7.490</p>
-                    </div>
+                    <a href="item.html">
+                        <div class="product-details">
+                            <p class="product-category">POLTRONAS</p>
+                            <h3 class="product-title">Poltrona Éden</h3>
+                            <p class="product-price">R$ 7.490</p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="product-card js-product-reveal">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80" alt="Mesa Orgânica">
                     </div>
-                    <div class="product-details">
-                        <p class="product-category">MESAS</p>
-                        <h3 class="product-title">Mesa Orgânica</h3>
-                        <p class="product-price">R$ 12.900</p>
-                    </div>
+                    <a href="item.html">
+                        <div class="product-details">
+                            <p class="product-category">MESAS</p>
+                            <h3 class="product-title">Mesa Orgânica</h3>
+                            <p class="product-price">R$ 12.900</p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="product-card js-product-reveal highlight">
@@ -86,11 +91,13 @@
                     <div class="product-image">
                         <img src="https://images.pexels.com/photos/1571470/pexels-photo-1571470.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Luminária Pátina" loading="lazy" class="image-fade-in">
                     </div>
+                    <a href="item.html">
                     <div class="product-details">
                         <p class="product-category">ILUMINAÇÃO</p>
                         <h3 class="product-title">Luminária Pátina</h3>
                         <p class="product-price">R$ 3.290</p>
                     </div>
+                    </a>
                 </div>
 
                 <div class="product-card js-product-reveal">
@@ -98,11 +105,13 @@
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=500&q=80" alt="Sofa Modular">
                     </div>
+                    <a href="item.html">
                     <div class="product-details">
                         <p class="product-category">SOFÁS</p>
                         <h3 class="product-title">Sofá Modular Infinity</h3>
                         <p class="product-price">R$ 18.900</p>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -247,5 +256,6 @@
     </footer>
 
     <script src="js/index.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>

@@ -5,26 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitetura Viva | Sob Medida</title>
     <link rel="stylesheet" href="css/sobmedida.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="navbar">
-        <div class="logo">Arquitetura Viva</div>
+        <a href="index.html"><div class="logo">Arquitetura Viva</div></a>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">COLEÇÕES</a></li>
+                <li><a href="colecao.html">COLEÇÕES</a></li>
                 <li><a href="ambientes.html">AMBIENTES</a></li>
-                <li><a href="#" class="active">SOB MEDIDA</a></li>
-                <li><a href="#">ATELIER</a></li>
+                <li><a href="sobmedida.html" class="active">SOB MEDIDA</a></li>
+                <li><a href="atelie.html">ATELIER</a></li>
             </ul>
         </nav>
         <div class="nav-icons">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            <div class="cart-wrapper">
+            <button class="nav-cart" id="cartBtn" style="background: none; border: none; cursor: pointer; display: flex; align-items: center;">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                <span class="cart-count">0</span>
-            </div>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
         </div>
     </header>
 
@@ -244,5 +245,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="js/sobmedida.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>

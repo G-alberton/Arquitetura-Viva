@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Arquitetura Viva</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Arquitetura Viva</a>
+            <div class="nav-links">
+                <a href="index.html">INÍCIO</a>
+                <a href="item.html" class="active">COLEÇÕES</a>
+                <a href="ambientes.html">AMBIENTES</a>
+                <a href="sobmedida.html">SOB MEDIDA</a>
+                <a href="atelie.html">ATELIER</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-icon" title="Pesquisar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="nav-icon nav-cart" id="cartBtn" title="Carrinho">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="checkout-section">
+        <div class="container">
+            <div class="checkout-grid">
+                
+                <!-- Form Section -->
+                <div class="checkout-form-container">
+                    <h2>Finalizar Compra</h2>
+                    
+                    <form id="checkoutForm">
+                        <div class="form-group">
+                            <label>E-MAIL PARA CONTATO</label>
+                            <input type="email" placeholder="seu@email.com" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>NOME</label>
+                                <input type="text" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label>SOBRENOME</label>
+                                <input type="text" placeholder="Seu sobrenome" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ENDEREÇO DE ENTREGA</label>
+                            <input type="text" placeholder="Rua, número, complemento" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>CIDADE</label>
+                                <input type="text" placeholder="Sua cidade" required>
+                            </div>
+                            <div class="form-group">
+                                <label>CEP</label>
+                                <input type="text" placeholder="00000-000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>MÉTODO DE PAGAMENTO</label>
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="card">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin: 0 auto 10px; display: block;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                                    <span>CARTÃO</span>
+                                </div>
+                                <div class="payment-method" data-method="pix">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin: 0 auto 10px; display: block;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                                    <span>PIX</span>
+                                </div>
+                                <div class="payment-method" data-method="boleto">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin: 0 auto 10px; display: block;"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                                    <span>BOLETO</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="cardDetails">
+                            <div class="form-group">
+                                <label>NÚMERO DO CARTÃO</label>
+                                <input type="text" placeholder="0000 0000 0000 0000">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>VALIDADE</label>
+                                    <input type="text" placeholder="MM/AA">
+                                </div>
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <input type="text" placeholder="000">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Summary Section -->
+                <div class="order-summary">
+                    <h3>Resumo do Pedido</h3>
+                    <div id="summaryItems">
+                        <!-- Items injected by JS -->
+                    </div>
+                    <div class="summary-item" style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <span>Subtotal</span>
+                        <span id="summarySubtotal">R$ 0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Frete</span>
+                        <span style="color: #4caf50; font-weight: 600;">GRÁTIS</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="summaryTotal">R$ 0</span>
+                    </div>
+                    <button type="button" class="btn-place-order" id="btnPlaceOrder">CONFIRMAR PEDIDO</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const summaryItems = document.getElementById('summaryItems');
+            const summarySubtotal = document.getElementById('summarySubtotal');
+            const summaryTotal = document.getElementById('summaryTotal');
+            const btnPlaceOrder = document.getElementById('btnPlaceOrder');
+
+            function updateSummary() {
+                const items = cart.items;
+                if (items.length === 0) {
+                    window.location.href = 'item.html';
+                    return;
+                }
+
+                summaryItems.innerHTML = items.map(item => `
+                    <div class="summary-item">
+                        <span>${item.qty}x ${item.name}</span>
+                        <span>R$ ${(item.price * item.qty).toLocaleString('pt-BR')}</span>
+                    </div>
+                `).join('');
+
+                const total = items.reduce((sum, item) => sum + (item.price * item.qty), 0);
+                summarySubtotal.textContent = `R$ ${total.toLocaleString('pt-BR')}`;
+                summaryTotal.textContent = `R$ ${total.toLocaleString('pt-BR')}`;
+            }
+
+            updateSummary();
+
+            // Payment method toggle
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', () => {
+                    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+                    method.classList.add('active');
+                    
+                    const cardDetails = document.getElementById('cardDetails');
+                    cardDetails.style.display = method.dataset.method === 'card' ? 'block' : 'none';
+                });
+            });
+
+            // Place order
+            btnPlaceOrder.addEventListener('click', () => {
+                btnPlaceOrder.textContent = 'PROCESSANDO...';
+                btnPlaceOrder.disabled = true;
+                
+                setTimeout(() => {
+                    localStorage.removeItem('av_cart');
+                    window.location.href = 'sucesso.html';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
